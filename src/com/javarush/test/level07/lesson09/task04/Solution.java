@@ -49,10 +49,10 @@ public class Solution {
         for (int i = 0; i < list.size(); i++) {
             String s = list.get(i);
 
-            for (int j = 0; s.contains("л") && !s.contains("р") && j < 1; j++, i++)
-                list.add(i + 1, s);
-            for (int j = 0; s.contains("р") && !s.contains("л") && j < 1; j++, i--)
-                list.remove(i);
+            for (int j = 0; s.contains("л") && !s.contains("р") && j++ < 1;)
+                list.add(++i, s);
+            for (int j = 0; s.contains("р") && !s.contains("л") && j++ < 1;)
+                list.remove(i--);
         }
 
         return list;
