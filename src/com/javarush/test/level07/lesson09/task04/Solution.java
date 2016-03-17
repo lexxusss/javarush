@@ -32,15 +32,30 @@ public class Solution {
     }
 
     public static ArrayList<String> fix(ArrayList<String> list) {
-        ArrayList<String> fixList = new ArrayList<>();
+        /*--- first method ---*/
+//        ArrayList<String> fixList = new ArrayList<>();
+//
+//        for (String s : list)
+//            if (s.contains("р") ^ s.contains("л"))
+//                for (int i = 0; i < 2 && s.contains("л"); i++)
+//                    fixList.add(s);
+//            else
+//                fixList.add(s);
+//
+//        return fixList;
+        /*--- /first method ---*/
 
-        for (String s : list)
-            if (s.contains("р") ^ s.contains("л"))
-                for (int i = 0; i < 2 && s.contains("л"); i++)
-                    fixList.add(s);
-            else
-                fixList.add(s);
+        /*--- second method ---*/
+        for (int i = 0; i < list.size(); i++) {
+            String s = list.get(i);
 
-        return fixList;
+            for (int j = 0; s.contains("л") && !s.contains("р") && j < 1; j++, i++)
+                list.add(i + 1, s);
+            for (int j = 0; s.contains("р") && !s.contains("л") && j < 1; j++, i--)
+                list.remove(i);
+        }
+
+        return list;
+        /*--- /second method ---*/
     }
 }
