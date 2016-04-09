@@ -10,8 +10,8 @@ public class Solution
 {
     public static void main(String[] args)
     {
-        closeToTen(8,11);
-        closeToTen(14,7);
+        closeToTen(8, 11);
+        closeToTen(14, 7);
     }
 
     public static void closeToTen(int a, int b)
